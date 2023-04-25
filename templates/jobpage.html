@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{job.title}}-Jovian Careers</title>
+    {%include "bootstrap.html"%}
+</head>
+
+<body>
+    {%include 'navbar.html' %}
+    <img src="/static/banner.jpg" class="img-fluid">
+    <h1 style="text-align: center;">Jovian Careers</h1>
+    <div class="container">
+        <h2>Job Title:</h2>
+        <h4>{{job.title}}</h4>
+        <br>
+        <h2>Job Location:</h2>
+        <h4>{{job.location}}</h4>
+        <br>
+        <h2>Salary:{{job.salary}} {{job.currency}}</h2>
+        <br>
+        <h2>Job Responsibilities:</h2>
+        <ul>
+            {%for line in job.responsibilities.split('\n'): %}
+            <li><b>{{line}}</b></li>
+            {%endfor%}
+        </ul>
+        <br>
+        <h2>Job Requirements:</h2>
+        <ol>
+            {%for line in job.requirements.split('\n'):%}
+            <li><b>{{line}}</b></li>
+            {%endfor%}
+        </ol>
+        <br>
+        <button class="btn btn-primary btn-lg">Contact Us</button>
+    </div>
+</body>
+{% include 'footer.html' %}
+
+</html>
