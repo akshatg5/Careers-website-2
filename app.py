@@ -1,6 +1,6 @@
 from flask import Flask,render_template,jsonify
 from sqlalchemy import create_engine,text
-from database import load_jobs_from_db
+from database import load_jobs_from_db,load_job_from_db
 
 app = Flask(__name__)  # creating a Flask application
 
@@ -29,10 +29,6 @@ app = Flask(__name__)  # creating a Flask application
 #         'salary' : 5000000,
 #     },  
 # ]
-
-
-    
-
 @app.route("/")
 def hello_world():
     jobs = load_jobs_from_db()
@@ -42,6 +38,14 @@ def hello_world():
 def list_jobs():
     jobs = load_jobs_from_db()
     return jsonify(jobs)
+
+#making another route to use the job id and pass it in the function
+@app.route("/job/<id>") 
+def show_jobs(id):
+    job = load_job_from_db(id)
+    if not job:
+        return "Error:Not Found",404
+    return render_template('jobpage.html',job=job)
 
 if __name__ == "__main__":
     app.run(debug=True)

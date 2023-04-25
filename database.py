@@ -12,12 +12,29 @@ engine = create_engine(db_connection_string,
 }
 })
 
+#loads all the jobs from the data base and esatblishes a connection
 def load_jobs_from_db():
     with engine.connect() as conn:
         result = conn.execute(text("select * from jobs"))
         result_all = result.all()
         jobs = [u._asdict() for u in result_all]
         return jobs
+
+#loading a single job using the id that has been passed by the user 
+def load_job_from_db(id):
+    with engine.connect() as conn:
+        result = conn.execute(
+        text(f"SELECT * FROM jobs WHERE id = :val"),
+      {"val": id}
+    )
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return rows[0]._asdict()
+        
+        
+#In sqlalchemy we use :variable to define a variable and then we have to define the variable outside the arguement of the text
 
 # #now taking the data out of the database using the engine
 # with engine.connect() as conn:
