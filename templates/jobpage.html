@@ -8,6 +8,7 @@
 
 <body>
     {%include 'navbar.html' %}
+    <h4>Scroll down for the application form</h4>
     <img src="/static/banner.jpg" class="img-fluid">
     <h1 style="text-align: center;">Jovian Careers</h1>
     <div class="container">
@@ -17,7 +18,8 @@
         <h2>Job Location:</h2>
         <h4>{{job.location}}</h4>
         <br>
-        <h2>Salary:{{job.salary}} {{job.currency}}</h2>
+        <h2>Salary:</h2>
+        <h4>{{job.salary}}{{job.currency}}</h4>
         <br>
         <h2>Job Responsibilities:</h2>
         <ul>
@@ -33,6 +35,8 @@
             {%endfor%}
         </ol>
         <br>
+        <h2> <u> Application Form: </u></h2>
+        {%include 'application_form.html'%}
         <button class="btn btn-primary btn-lg">Contact Us</button>
     </div>
 </body>

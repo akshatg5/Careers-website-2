@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%include 'bootstrap.html'%}
+    <title>Application Form for {{job.title}}</title>
+</head>
+
+<body>
+    <h1>Application Form for {{job.title}}:</h1>
+    <form action="/job/{{job['id']}}/apply" method="post">
+        <div>
+            <label>Full Name:</label> <br>
+            <input type="text" name="full_name" id="" placeholder="Tony Stark">
+        </div>
+        <br>
+        <div>
+            <label for="">Email:</label> <br>
+            <input type="email" name="email" id="" placeholder="tonystark3000@gmail.com">
+        </div>
+        <br>
+        <div>
+            <label for="">LinkedIn</label> <br>
+            <input type="url" name="linkedin_url" id="" placeholder="https://linkedin.com/tonystark">
+        </div>
+        <br>
+        <div>
+            <label for="">Phone No.</label> <br>
+            <input type="number" name="phone" id="" placeholder="9876543210">
+        </div>
+        <br>
+        <div>
+            <label for="">Education</label> <br>
+            <textarea name="education" id="" cols="50" rows="5" placeholder="School and College Details"></textarea>
+        </div>
+        <div>
+            <label for="">Work Experience</label> <br>
+            <textarea name="work_experience" id="" cols="50" rows="5" placeholder="Past Projects and Companies"></textarea>
+        </div>
+        <div>
+            <label for="">Resume URL</label> <br>
+            <input type="url" name="resume_url" id="">
+        </div>
+        <br>
+        <input type="submit" value="Submit" name="submit">
+    </form>
+    <br>
+</body>
+
+</html>

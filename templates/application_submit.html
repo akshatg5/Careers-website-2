@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jovian Careers</title>
+    {%include "bootstrap.html"%}
+</head>
+
+<body>
+    {%include 'navbar.html' %}
+    <h2 style="text-align: center;">Your application for {{job.title}} has been submitted</h2>
+    <p style="text-align: center;">Scroll down for details</p>
+    <img src="/static/banner.jpg" class="img-fluid">
+    <h1 style="text-align: center;">Jovian Careers - {{job.title}}</h1>
+    <div style="margin-left: 5; padding-left: 85px;">
+        <h4>Full Name:</h4>
+        <div>{{application['full_name']}}</div>
+        <h4>Email:</h4>
+        <div>{{application['emailid']}}</div>
+        <h4>Phone No.:</h4>
+        <div>{{application['phone']}}</div>
+        <h4>Linkedin URL</h4>
+        <div>{{application['linkedin']}}</div>
+        <h4>Education</h4>
+        <div>{{application['education']}}</div>
+        <h4>Work Experience</h4>
+        <div>{{application['work_experience']}}</div>
+        <h4>Resume URL</h4>
+        <div>{{application['resume_url']}}</div>
+        <br>
+    </div>
+    <div style="margin-left: 5; padding-left: 85px;">
+        <button class="btn btn-primary btn-lg">Contact Us</button>
+    </div>
+</body>
+{% include 'footer.html' %}
